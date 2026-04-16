@@ -28,7 +28,6 @@ export default function PdfViewer({ url, title }: PdfViewerProps) {
   const [zoom, setZoom] = useState(1);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isFocusMode, setIsFocusMode] = useState(false);
-  const [showToolbar, setShowToolbar] = useState(false);
   
   const containerRef = useRef<HTMLDivElement>(null);
   const iframeRef = useRef<HTMLIFrameElement>(null);
@@ -64,8 +63,6 @@ export default function PdfViewer({ url, title }: PdfViewerProps) {
   return (
     <div 
       ref={containerRef}
-      onMouseEnter={() => setShowToolbar(true)}
-      onMouseLeave={() => setShowToolbar(false)}
       className={cn(
         "relative w-full transition-all duration-700 ease-in-out group",
         isFocusMode ? "h-screen fixed inset-0 z-[100] bg-black" : "h-[85vh] bg-white/50 backdrop-blur-sm rounded-[40px] shadow-2xl border border-white/60 overflow-hidden"
@@ -132,14 +129,14 @@ export default function PdfViewer({ url, title }: PdfViewerProps) {
         />
       </motion.div>
 
-      <AnimatePresence>
-        {(showToolbar || isFocusMode) && (
-          <motion.div
-            initial={{ y: 100, opacity: 0, x: "-50%" }}
-            animate={{ y: 0, opacity: 1, x: "-50%" }}
-            exit={{ y: 100, opacity: 0, x: "-50%" }}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-[110] flex items-center gap-2 p-2 bg-black/80 backdrop-blur-2xl border border-white/10 rounded-[24px] shadow-2xl"
-          >
+        <div
+          className={cn(
+            "absolute bottom-8 left-1/2 -translate-x-1/2 z-[110] flex items-center gap-2 p-2 bg-black/80 backdrop-blur-2xl border border-white/10 rounded-[24px] shadow-2xl transition-all duration-500",
+            isFocusMode 
+              ? "opacity-100 translate-y-0" 
+              : "opacity-100 translate-y-0 md:opacity-0 md:translate-y-4 group-hover:opacity-100 group-hover:translate-y-0"
+          )}
+        >
             <div className="flex items-center bg-white/5 rounded-2xl p-1 gap-1">
               <button 
                 onClick={() => setZoom(prev => Math.max(0.5, prev - 0.1))}
@@ -192,9 +189,7 @@ export default function PdfViewer({ url, title }: PdfViewerProps) {
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 pointer-events-none">
               <ChevronUp className="w-4 h-4 text-white/20 animate-bounce" />
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        </div>
 
       {isFocusMode && (
         <div className="absolute top-6 left-1/2 -translate-x-1/2 pointer-events-none z-[110]">

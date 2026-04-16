@@ -22,7 +22,7 @@ export default async function ExamPage({ params }: { params: Promise<{ id: strin
 
   return (
     <div className="space-y-8 max-w-5xl mx-auto px-4 py-8">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-wrap items-center justify-between gap-4">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-xs font-bold text-gray-400 hover:text-purple-600 transition-colors uppercase tracking-widest px-4 py-2 hover:bg-white/50 rounded-2xl"
@@ -30,7 +30,7 @@ export default async function ExamPage({ params }: { params: Promise<{ id: strin
           <ArrowLeft className="w-4 h-4" />
           Retour au portail
         </Link>
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <span className="flex items-center gap-1.5 text-[10px] font-black text-purple-400/80 bg-purple-50 px-3 py-1 rounded-full uppercase tracking-widest">
             <Download className="w-3 h-3" />
             {exam.downloadCount || 0} TÉLÉCHARGEMENTS

@@ -66,7 +66,7 @@ export default function ExamCard({ exam }: ExamCardProps) {
             )}
           </div>
           
-          <h3 className="font-black text-gray-900 text-sm tracking-tight leading-tight group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-premium transition-all duration-300 line-clamp-2">
+          <h3 className="font-black text-gray-900 text-sm tracking-tight leading-tight group-hover:text-purple-600 transition-colors duration-300 line-clamp-2">
             Examen National {exam.subject} - {exam.year}
           </h3>
           
