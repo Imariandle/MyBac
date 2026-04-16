@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎓 BAC Maroc
+# 🎓 MyBac
 
 **A premium, minimalist exam discovery portal for Moroccan Baccalaureate students**
 
