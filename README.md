@@ -28,7 +28,7 @@
 
 | Home Dashboard (Glassmorphism) | Document Pro Viewer (Focus Mode) |
 |-------------------------------|-------------------------------|
-| ![Dashboard Preview](https://github.com/user-attachments/assets/placeholder-dashboard) | ![Viewer Preview](https://github.com/user-attachments/assets/placeholder-viewer) |
+| ![Dashboard Preview](https://github.com/user-attachments/assets/3ce72842-673b-4291-9498-06d6bdc8b7d7) | ![Viewer Preview](https://github.com/user-attachments/assets/b27bf55a-105a-4aab-bcd6-5d6dbd4db436) |
 
 > *Note: These are visual representations of the premium UI components.*
 
