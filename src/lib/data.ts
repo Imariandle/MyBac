@@ -28,7 +28,8 @@ export const fetchExams = async (filters: {
     let query = supabase
       .from("exams")
       .select("*")
-      .order("year", { ascending: false });
+      .order("year", { ascending: false })
+      .range(0, 9999);
 
     if (filters.subject) query = query.eq("subject", filters.subject);
     if (filters.year) query = query.eq("year", parseInt(filters.year));
@@ -45,7 +46,7 @@ export const fetchExams = async (filters: {
   })();
 
   const timeoutPromise = new Promise<Exam[]>((_, reject) =>
-    setTimeout(() => reject(new Error("Request timed out")), 5000)
+    setTimeout(() => reject(new Error("Request timed out")), 15000)
   );
 
   try {

@@ -75,7 +75,8 @@ export default function ExamFilters({ onChange }: ExamFiltersProps) {
           {isOpen && (
             <>
               <div 
-                className="fixed inset-0 z-10 cursor-default" 
+                className="fixed inset-0 z-10" 
+                style={{ cursor: "pointer", WebkitTapHighlightColor: "transparent" }}
                 onClick={() => setActiveDropdown(null)} 
               />
               <motion.div
